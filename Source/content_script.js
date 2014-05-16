@@ -1,20 +1,14 @@
 walk(document.body);
 
-function walk(node) 
-{
-	// I stole this function from here:
-	// http://is.gd/mwZp7E
-	
-	var child, next;
+function walk(node) { // Function taken from http://is.gd/mwZp7E
 
-	switch ( node.nodeType )  
-	{
+	var child, next;
+	switch ( node.nodeType ) {
 		case 1:  // Element
 		case 9:  // Document
 		case 11: // Document fragment
 			child = node.firstChild;
-			while ( child ) 
-			{
+			while ( child ) {
 				next = child.nextSibling;
 				walk(child);
 				child = next;
@@ -27,16 +21,36 @@ function walk(node)
 	}
 }
 
-function handleText(textNode) 
-{
+function handleText(textNode) {
 	var v = textNode.nodeValue;
+	var	i, len, re;
+	var arr = [
+	    ["human"   , "hewmon"],
+	    ["Human"   , "Hewmon"],
+	    ["humans"  , "hewmons"],
+	    ["Humans"  , "Hewmons"],
+	    ["wine"    , "bloodwine"],
+	    ["Wine"    , "Bloodwine"],
+	    ["tea"     , "tarkalean tea"],
+	    ["Tea"     , "Tarkalean Tea"],
+	    ["coffee"  , "raktajino"],
+	    ["Coffee"  , "Raktajino"],
+	    ["beer"    , "Romulan ale"],
+	    ["Beer"    , "Romulan Ale"],
+	    ["Cisco"   , "Sisko"]
+	];
 
-	v = v.replace(/\bThe Cloud\b/g, "My Butt");
-	v = v.replace(/\bThe cloud\b/g, "My butt");
-	v = v.replace(/\bthe Cloud\b/g, "my Butt");
-	v = v.replace(/\bthe cloud\b/g, "my butt");
-	
+	for (i = 0, len = arr.length; i < len; i++) {
+		arr[i][0] = new RegExp( arr[i][0] );
+	}
+
+	for (i = 0, len = arr.length; i < len; i++) {
+		re = arr[i][0];
+		if ( re.test(v) ) {
+			v = v.replace(re, arr[i][1]);
+		}
+	}
+
 	textNode.nodeValue = v;
 }
-
 
