@@ -1,4 +1,4 @@
-window.WineToBloodwine = (function(){
+(function(){
 	var arr = [
 	    ["human"   , "hewmon"],
 	    ["Human"   , "Hewmon"],
@@ -57,5 +57,3 @@ window.WineToBloodwine = (function(){
 	walk(document.body);
 
 })();
-
-Bloodwine = Bloodwine || WineToBloodwine;
