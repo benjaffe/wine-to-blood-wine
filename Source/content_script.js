@@ -17,7 +17,7 @@
 
 	// make RegExps
 	for (i = 0, len = arr.length; i < len; i++) {
-		arr[i][0] = new RegExp( arr[i][0] );
+		arr[i][0] = new RegExp( '/\b'+arr[i][0]+'\b/g' );
 	}
 
 	function walk(node) { // Function taken from http://is.gd/mwZp7E
