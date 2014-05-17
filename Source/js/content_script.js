@@ -7,66 +7,56 @@ window.Wtbw = (function(){
 			replacementList: [
 				{
 					match: new RegExp("\\bhuman\\b"),
-					replacements: ["hewmon1",'hewmon111'],
-					keepCase: true
+					replacements: ["hewmon",'hewmon']
 				},
 				{
 					match: new RegExp("\\bHuman\\b"),
-					replacements: ["Hewmon2","Hewmon23","Hewmon234","Hewmon2345"],
-					keepCase: true
+					replacements: "Hewmon"
 				},
 			    {
 			    	match: new RegExp("\\bhumans\\b"),
-			    	replacements: "hewmons3",
-			    	keepCase: true
+			    	replacements: "hewmons"
 		    	},
 			    {
 			    	match: new RegExp("\\bHumans\\b"),
-			    	replacements: "Hewmons4",
-			    	keepCase: true
+			    	replacements: "Hewmons"
 		    	}
 	    	]
 		},
 		// wine
 		{
-			regExp: new RegExp("(\\bwine?\\b)", 'i'),
+			regExp: new RegExp("(\\bwine\\b)", 'i'),
 			replacementList: [
 				{
 					match: new RegExp("\\bwine\\b"),
-					replacement: "bloodwine",
-					keepCase: true
+					replacements: "bloodwine"
 				},
 			    {
 			    	match: new RegExp("\\bWine\\b"),
-			    	replacement: "Bloodwine",
-			    	keepCase: true
+			    	replacements: "Bloodwine"
 			    },
 			]
-		}/*
+		},
 		// tea
-		[
-			{
-				match: "\\btea\\b",
-				replacement:  "tarkalean tea",
-				keepCase: true
-			},
-		    {
-		    	match: "\\bTea\\b",
-		    	replacement:  "Tarkalean Tea",
-		    	keepCase: true
-		    },
-		    {
-		    	match: "\\bEarl Grey Tea\\b",
-		    	replacement: "Tea (Earl Grey, hot)",
-		    	keepCase: true
-		    },
-		    {
-		    	match: "\\bEarl Grey\\b",
-		    	replacement: "Tea (Earl Grey, hot)",
-		    	keepCase: true
-		    },
-		]
+		{
+			regExp: new RegExp('(\\btea|earl grey tea\\b)', 'i'),
+			replacementList: [
+			    {
+			    	match: new RegExp("\\bEarl Grey Tea\\b","i"),
+			    	replacements: "Tea (Earl Grey, hot)"
+			    },
+			    {
+					match: new RegExp("\\btea\\b"),
+					replacements:  "tarkalean tea"
+				},
+			    {
+			    	match: new RegExp("\\bTea\\b"),
+			    	replacements:  "Tarkalean Tea"
+			    }
+			]
+		}
 
+		/*
 
 	    // ["coffee"  , "raktajino"],
 	    // ["Coffee"  , "Raktajino"],
@@ -158,17 +148,19 @@ window.Wtbw = (function(){
 						for (k=0, kLen = replacementListArr.length; k < kLen; k++) {
 							// if the regexp matches the string
 							if ( replacementListArr[k].match.test( currStr ) ) {
+
 								// choose a random replacement
 								replacementChoices = replacementListArr[k].replacements;
 
 								replacementStr = (typeof replacementChoices === 'string') ?
-									replacementChoices :
+									replacementChoices : // the string, or a random item from the array
 									replacementChoices[ Math.floor(Math.random() * replacementChoices.length) ];
 
+								break;
 							}
 						}
 
-						fragment.appendChild( makeReplacementElement(str, replacementStr) );
+						fragment.appendChild( makeReplacementElement(currStr, replacementStr) );
 					}
 				}
 				return fragment;
