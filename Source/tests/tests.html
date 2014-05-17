@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Your_Extension Tests</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.2.0/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+  <!-- include spec files here -->
+  <script type="text/javascript" src="spec/replacements.js"></script>
+
+  <!-- include source files here. These can be directly imported from wherever you're storing your
+       background and content scripts.  -->
+  <script type="text/javascript" src="/js/content_script.js"></script>
+
+  <script type="text/javascript" src="loadjasmine.js"></script>
+
+</head>
+  <!-- Serious thanks to @ecmendenhall for the gist which got me set up. -->
+  <!-- https://gist.github.com/ecmendenhall/3740896 -->
+  <body>
+    <button id="loadjasmine">Load Jasmine</button>
+    <button id="runtests">Run Tests</button>
+  </body>
+
+</html>
