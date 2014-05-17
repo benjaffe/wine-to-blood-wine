@@ -5,8 +5,8 @@
 	"description": "Replaces normal words with their Star Trek counterparts.",
 	"options_page": "tests/tests.html",
 	"browser_action": {
-      "default_title": "Tests",      // optional; shown in tooltip
-      "default_popup": "tests/tests.html"        // optional
+      "default_title": "Tests",
+      "default_popup": "tests/tests.html"
     },
 	"content_scripts":
 	[

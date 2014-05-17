@@ -180,7 +180,7 @@ window.Wtbw = (function(){
 
 	function makeReplacementElement(origStr, newStr) {
 		var wrapperElem = document.createElement('span');
-		wrapperElem.className = 'wtbw';
+		wrapperElem.className = 'wtbw-elem';
 
 		var origElem = document.createElement('span');
 		origElem.className = 'wtbw-original';
@@ -190,8 +190,8 @@ window.Wtbw = (function(){
 		newElem.className = 'wtbw-new';
 		newElem.textContent = newStr;
 
-		wrapperElem.appendChild(origElem);
 		wrapperElem.appendChild(newElem);
+		wrapperElem.appendChild(origElem);
 
 		// console.log(wrapperElem);
 		return wrapperElem;
