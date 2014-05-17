@@ -13,6 +13,7 @@
 		{
 			"matches": ["*://*/*"],
 			"js": ["js/content_script.js"],
+			"css": ["css/content_styles.css"],
 			"run_at": "document_end"
 		}
 	]
