@@ -148,7 +148,7 @@ window.Wtbw = (function(){
 				// split it up, including the matched strings, loop over them
 				strArr = str.split(re);
 				for (j = 0, jLen = strArr.length; j < jLen; j++) {
-					currStr = strArr[j]
+					currStr = strArr[j];
 					// for the even strings (non-matched)
 					if (j % 2 === 0) {
 						// add text node to fragment
@@ -193,7 +193,6 @@ window.Wtbw = (function(){
 		wrapperElem.appendChild(newElem);
 		wrapperElem.appendChild(origElem);
 
-		// console.log(wrapperElem);
 		return wrapperElem;
 	}
 
