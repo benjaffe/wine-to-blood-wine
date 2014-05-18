@@ -1,15 +1,23 @@
 .wtbw-elem .wtbw-original {
     display:none;
 }
+.wtbw-elem:hover {
+    box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+}
+.wtbw-elem:hover .wtbw-new {
+    background-color: rgba(255,100,0,0.2);
+    padding:2px 4px;
+}
 .wtbw-elem:hover .wtbw-original {
     display:inline;
     background-color: rgba(255,100,0,0.4);
     opacity:0.8;
-    padding:5px;
-    box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+    padding:2px 4px;
+    text-decoration: line-through;
+    font-weight:normal;
 }
 .wtbw-elem .wtbw-new {
-    background-color:rgba(255,255,0,0.3);
+    /*background-color:rgba(255,255,0,0.3);*/
 }
 .wtbw-disabled .wtbw-new {
     display:none
