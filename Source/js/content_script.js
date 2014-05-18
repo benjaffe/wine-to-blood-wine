@@ -6,20 +6,24 @@ window.Wtbw = (function(){
 			regExp: new RegExp("(\\bhumans?\\b)", 'i'),
 			replacementList: [
 				{
-					match: new RegExp("\\bhuman\\b"),
-					replacements: ["hewmon",'hewmon']
-				},
-				{
 					match: new RegExp("\\bHuman\\b"),
 					replacements: "Hewmon"
 				},
 			    {
-			    	match: new RegExp("\\bhumans\\b"),
-			    	replacements: "hewmons"
+			    	match: new RegExp("\\bHumans\\b"),
+			    	replacements: "Hewmons"
 		    	},
+				{
+					match: new RegExp("\\bhuman\\b","i"),
+					replacements: ["hewmon",'hewmon']
+				},
 			    {
 			    	match: new RegExp("\\bHumans\\b"),
 			    	replacements: "Hewmons"
+		    	},
+			    {
+			    	match: new RegExp("\\bhumans\\b","i"),
+			    	replacements: "hewmons"
 		    	}
 	    	]
 		},
@@ -28,13 +32,13 @@ window.Wtbw = (function(){
 			regExp: new RegExp("(\\bwine\\b)", 'i'),
 			replacementList: [
 				{
-					match: new RegExp("\\bwine\\b"),
-					replacements: "bloodwine"
-				},
-			    {
 			    	match: new RegExp("\\bWine\\b"),
 			    	replacements: "Bloodwine"
 			    },
+			    {
+					match: new RegExp("\\bwine\\b","i"),
+					replacements: "bloodwine"
+				}
 			]
 		},
 		// tea
@@ -42,26 +46,79 @@ window.Wtbw = (function(){
 			regExp: new RegExp('(\\btea|earl grey tea\\b)', 'i'),
 			replacementList: [
 			    {
-			    	match: new RegExp("\\bEarl Grey Tea\\b","i"),
+			    	match: new RegExp("\\bEarl Grey Tea\\b"),
 			    	replacements: "Tea (Earl Grey, hot)"
 			    },
 			    {
-					match: new RegExp("\\btea\\b"),
-					replacements:  "tarkalean tea"
-				},
+			    	match: new RegExp("\\bEarl Grey tea\\b","i"),
+			    	replacements: "tea (Earl Grey, hot)"
+			    },
 			    {
 			    	match: new RegExp("\\bTea\\b"),
 			    	replacements:  "Tarkalean Tea"
+			    },
+			    {
+					match: new RegExp("\\btea\\b","i"),
+					replacements:  "Tarkalean tea"
+				}
+			]
+		},
+		// coffee
+		{
+			regExp: new RegExp('(\\bcoffee\\b)', 'i'),
+			replacementList: [
+				{
+			    	match: new RegExp("\\bCoffee\\b"),
+			    	replacements: "Raktajino"
+			    },
+			    {
+			    	match: new RegExp("\\bcoffee\\b","i"),
+			    	replacements: "raktajino"
+			    }
+			]
+		},
+		// beer
+		{
+			regExp: new RegExp('(\\bbeer\\b)', 'i'),
+			replacementList: [
+				{
+			    	match: new RegExp("\\bbeer\\b"),
+			    	replacements: "Romulan ale"
+			    },
+			    {
+			    	match: new RegExp("\\bBeer\\b","i"),
+			    	replacements: "Romulan Ale"
+			    }
+			]
+		},
+		// brandy
+		{
+			regExp: new RegExp('(\\bbrandy\\b)', 'i'),
+			replacementList: [
+			    {
+			    	match: new RegExp("\\bBrandy\\b"),
+			    	replacements: "Saurian Brandy"
+			    },
+				{
+			    	match: new RegExp("\\bbrandy\\b", "i"),
+			    	replacements: "Saurian brandy"
+			    }
+			]
+		},
+		// Cisco
+		{
+			regExp: new RegExp('(\\bcisco\\b)', 'i'),
+			replacementList: [
+			    {
+			    	match: new RegExp("\\bcisco\\b","i"),
+			    	replacements: "Sisko"
 			    }
 			]
 		}
 
+
 		/*
 
-	    // ["coffee"  , "raktajino"],
-	    // ["Coffee"  , "Raktajino"],
-	    // ["beer"    , "Romulan ale"],
-	    // ["Beer"    , "Romulan Ale"],
 	    // ["brandy"    , "Saurian brandy"],
 	    // ["Brandy"    , "Saurian Brandy"],
 	    // ["Cisco"   , "Sisko"]
