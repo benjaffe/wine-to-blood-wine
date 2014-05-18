@@ -43,7 +43,7 @@ window.Wtbw = (function(){
 		},
 		// tea
 		{
-			regExp: new RegExp('(\\btea|earl grey tea\\b)', 'i'),
+			regExp: new RegExp('(\\btea\\b|\\bearl grey tea\\b)', 'i'),
 			replacementList: [
 			    {
 			    	match: new RegExp("\\bEarl Grey Tea\\b"),
