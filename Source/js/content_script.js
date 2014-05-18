@@ -29,8 +29,16 @@ window.Wtbw = (function(){
 		},
 		// wine
 		{
-			regExp: new RegExp("(\\bwine\\b)", 'i'),
+			regExp: new RegExp("(\\bwines?\\b)", 'i'),
 			replacementList: [
+				{
+			    	match: new RegExp("\\bWines\\b"),
+			    	replacements: "Barrels of bloodwine"
+			    },
+			    {
+					match: new RegExp("\\bwines\\b","i"),
+					replacements: "barrels of bloodwine"
+				},
 				{
 			    	match: new RegExp("\\bWine\\b"),
 			    	replacements: "Bloodwine"
