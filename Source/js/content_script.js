@@ -242,10 +242,20 @@ window.Wtbw = (function(){
 		newElem.className = 'wtbw-new';
 		newElem.textContent = newStr;
 
+		var settingsElem = document.createElement('span');
+		settingsElem.className = 'wtbw-settings';
+		settingsElem.addEventListener('click', openSettings);
+
 		wrapperElem.appendChild(newElem);
 		wrapperElem.appendChild(origElem);
+		origElem.appendChild(settingsElem);
 
 		return wrapperElem;
+	}
+
+	function openSettings(e) {
+		e.preventDefault();
+		// settings page code goes here
 	}
 
 	init();
