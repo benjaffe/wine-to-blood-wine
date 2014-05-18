@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
   <title>Your_Extension Tests</title>
@@ -12,18 +11,25 @@
   <!-- include spec files here -->
   <script type="text/javascript" src="spec/replacements.js"></script>
 
-  <!-- include source files here. These can be directly imported from wherever you're storing your
-       background and content scripts.  -->
-  <script type="text/javascript" src="/js/content_script.js"></script>
-
   <script type="text/javascript" src="loadjasmine.js"></script>
 
+  <style>
+  .test-element {display:none;}
+  </style>
+
 </head>
-  <!-- Serious thanks to @ecmendenhall for the gist which got me set up. -->
+  <!-- Serious thanks to @ecmendenhall for the gist which got me set up originally. -->
   <!-- https://gist.github.com/ecmendenhall/3740896 -->
   <body>
     <button id="loadjasmine">Load Jasmine</button>
     <button id="runtests">Run Tests</button>
-  </body>
+    <p class="test-element" id="human">Human, human, Humans, humans, HUman</p>
+    <p class="test-element" id="wine">wine, Wine</p>
+    <p class="test-element" id="beer">beer, Beer</p>
+    <p class="test-element" id="tea">tea, Tea, Earl Grey Tea, Earl Grey tea, Earl Grey</p>
+    <p class="test-element" id="coffee">coffee, Coffee</p>
+    <p class="test-element" id="brandy">brandy, Brandy</p>
+    <p class="test-element" id="cisco">cisco, Cisco</p>
+</body>
 
 </html>

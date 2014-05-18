@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById("loadjasmine").addEventListener('click', loadJasmine);
+    // document.getElementById("loadjasmine").addEventListener('click', loadJasmine);
+    loadJasmine();
 });
 
 function loadJasmine() {
@@ -21,5 +22,8 @@ function loadJasmine() {
   function runTests() {
     execJasmine();
   }
-  document.getElementById("runtests").addEventListener('click', runTests);
+  // document.getElementById("runtests").addEventListener('click', runTests);
+  // runTests();
+  setTimeout(function(){runTests();},1000);
+  // setTimeout(function(){location.reload();},5000); //refresh every 5 seconds
 }
