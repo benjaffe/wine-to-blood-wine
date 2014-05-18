@@ -1,4 +1,3 @@
-window.hi = 'hi there';
 window.Wtbw = (function(){
 	var arr = [
 		// human
@@ -123,35 +122,22 @@ window.Wtbw = (function(){
 			    }
 			]
 		}
-
-
-		/*
-
-	    // ["brandy"    , "Saurian brandy"],
-	    // ["Brandy"    , "Saurian Brandy"],
-	    // ["Cisco"   , "Sisko"]
-	    */
 	];
 
 	// more-local arrays for performance, with linked indexes
 	// init() initializes/refreshes them
-	var regExpArr = [];
-	var replacementListsArr = [];
+	var regExpArr = [],
+		replacementListsArr = [];
 
 	function init() {
 		document.body.classList.add('wtbw');
+		// local arrays for efficiency
 		for (i = 0, len = arr.length; i < len; i++) {
 			regExpArr.push( arr[i].regExp );
 			replacementListsArr.push ( arr[i].replacementList );
 		}
 
-		// walk will fail while running unit tests
-		// try {
-			walk(document.body);
-		// } catch (e) {
-			// console.error('Skipping walking the document, probably due to unit tests', e);
-		// }
-
+		walk(document.body);
 	}
 
 	function walk(node) { // Function taken from http://is.gd/mwZp7E
@@ -177,21 +163,21 @@ window.Wtbw = (function(){
 		}
 	}
 
-	// takes in a text node, returns false, or a document fragment to replace the original
+	// takes in a text node
+	// if no replacements are made, returns false
+	// if replacements are made, returns a document fragment to replace the original node
 	function makeReplacements(node) {
-		var	i, j, len, re, replacementList, replacementStr, replacementChoices, currStr;
-		var str = node.nodeValue;
-		var modified = false;
-		var fragment;
+		var	i, j, len, re, replacementList, replacementStr, replacementChoices, currStr,
+			str = node.nodeValue,
+			modified = false,
+			fragment;
 
-		// test for each regexp
+		// test the node's text against each regexp
 		for (i = 0, len = regExpArr.length; i < len; i++) {
-
-			// do we have something to replace for the current regexp?
 			re = regExpArr[i];
 
+			// if we have something to replace for the current regexp
 			if ( re.test(str) ) {
-				// console.log('replacement going on',str,re);
 
 				// make a fragment if it doesn't exist
 				if (!fragment) fragment = document.createDocumentFragment();
@@ -199,33 +185,41 @@ window.Wtbw = (function(){
 				// get the local list of replacements ready
 				replacementListArr = replacementListsArr[i];
 
-
-				// split it up, including the matched strings, loop over them
+				// split it up, (including the matched strings), loop over them
+				// will result in strArr being ['nonmatch ', 'match', ' nonmatch ', 'match', ' nonmatch.']
 				strArr = str.split(re);
+
+				// loop over each of the pieces of the string
 				for (j = 0, jLen = strArr.length; j < jLen; j++) {
 					currStr = strArr[j];
 					// for the even strings (non-matched)
 					if (j % 2 === 0) {
-						// add text node to fragment
+						// add text node to fragment, unchanged
 						fragment.appendChild( document.createTextNode(currStr) );
 					} else {
-						// do the replacement here!
+						// Do the replacement here!
+						// Loop through the possible replacements for this string
 						for (k=0, kLen = replacementListArr.length; k < kLen; k++) {
+
 							// if the regexp matches the string
 							if ( replacementListArr[k].match.test( currStr ) ) {
 
-								// choose a random replacement
+								// grab the replacement string or array of replacement options
 								replacementChoices = replacementListArr[k].replacements;
 
+								// if replacementChoices is a string, return the string.
+								// if it's an array, return a random string from the array
 								replacementStr = (typeof replacementChoices === 'string') ?
-									replacementChoices : // the string, or a random item from the array
+									replacementChoices :
 									replacementChoices[ Math.floor(Math.random() * replacementChoices.length) ];
 
+								// we've succeeded once for this string, so don't keep trying
 								break;
 							}
 						}
 
-						fragment.appendChild( makeReplacementElement(currStr, replacementStr) );
+						// make a replacement element, add it to the fragment
+						fragment.appendChild( makeDOMElementForReplacement(currStr, replacementStr) );
 					}
 				}
 				return fragment;
@@ -235,7 +229,8 @@ window.Wtbw = (function(){
 		return false;
 	}
 
-	function makeReplacementElement(origStr, newStr) {
+	// takes in two strings, returns a DOM element
+	function makeDOMElementForReplacement(origStr, newStr) {
 		var wrapperElem = document.createElement('span');
 		wrapperElem.className = 'wtbw-elem';
 
