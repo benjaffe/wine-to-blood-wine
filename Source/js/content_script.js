@@ -149,7 +149,11 @@ window.Wtbw = (function(){
 				child = node.firstChild;
 				while ( child ) {
 					next = child.nextSibling;
-					walk(child);
+
+					//only walk the element if it hasn't already been replaced
+					if ( !(child.classList && child.classList.contains('wtbw-elem')) ) {
+						walk(child);
+					}
 					child = next;
 				}
 				break;
