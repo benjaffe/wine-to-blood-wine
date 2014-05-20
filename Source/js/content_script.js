@@ -6,23 +6,19 @@ window.Wtbw = (function(){
 			replacementList: [
 				{
 					match: new RegExp("\\bHuman\\b"),
-					replacements: "Hewmon"
+					replacements: ["Hewmon","Terran"]
 				},
 			    {
 			    	match: new RegExp("\\bHumans\\b"),
-			    	replacements: "Hewmons"
+			    	replacements: ["Hewmons","Terrans"]
 		    	},
 				{
 					match: new RegExp("\\bhuman\\b","i"),
-					replacements: ["hewmon",'hewmon']
+					replacements: ["hewmon",'terran']
 				},
 			    {
-			    	match: new RegExp("\\bHumans\\b"),
-			    	replacements: "Hewmons"
-		    	},
-			    {
 			    	match: new RegExp("\\bhumans\\b","i"),
-			    	replacements: "hewmons"
+			    	replacements: ["hewmons","terrans"]
 		    	}
 	    	]
 		},
