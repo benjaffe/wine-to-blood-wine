@@ -1,24 +1,37 @@
 .wtbw-elem .wtbw-original {
     display:none;
 }
+.wtbw-elem .wtbw-new {
+
+}
+.wtbw-elem {
+    position:relative;
+    z-index:100;
+}
 .wtbw-elem:hover {
-    box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+    top:0;
+    left:-2px;
+    margin-right:-4px;
+
 }
 .wtbw-elem:hover .wtbw-new {
-    background-color: rgba(255,100,0,0.2);
-    padding:2px 4px;
+    background-color: rgb(245,190,160);
+    padding:2px;
+    box-shadow:1px 1px 2px rgba(0,0,0,0.3);
 }
 .wtbw-elem:hover .wtbw-original {
-    display:inline;
-    background-color: rgba(255,100,0,0.4);
-    opacity:0.8;
-    padding:2px 4px;
+    position:absolute;
+    display: inline;
+    top: -2px;
+    height:100%;
+    padding: 2px 4px;left:100%;
+    background-color: rgb(245,190,160);
+    /*color:rgba(50,50,50,0.8);*/
     text-decoration: line-through;
     font-weight:normal;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
-.wtbw-elem .wtbw-new {
-    /*background-color:rgba(255,255,0,0.3);*/
-}
+
 .wtbw-disabled .wtbw-new {
     display:none
 }

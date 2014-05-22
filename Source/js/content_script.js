@@ -130,7 +130,7 @@ window.Wtbw = (function(){
 		// local arrays for efficiency
 		for (i = 0, len = arr.length; i < len; i++) {
 			regExpArr.push( arr[i].regExp );
-			replacementListsArr.push ( arr[i].replacementList );
+			replacementListsArr.push( arr[i].replacementList );
 		}
 
 		walk(document.body);
