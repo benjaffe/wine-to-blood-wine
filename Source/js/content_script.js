@@ -145,7 +145,11 @@ window.Wtbw = (function(){
 				child = node.firstChild;
 				while ( child ) {
 					next = child.nextSibling;
-					walk(child);
+
+					//only walk the element if it hasn't already been replaced
+					if ( !(child.classList && child.classList.contains('wtbw-elem')) ) {
+						walk(child);
+					}
 					child = next;
 				}
 				break;
@@ -238,10 +242,20 @@ window.Wtbw = (function(){
 		newElem.className = 'wtbw-new';
 		newElem.textContent = newStr;
 
+		var settingsElem = document.createElement('span');
+		settingsElem.className = 'wtbw-settings';
+		settingsElem.addEventListener('click', openSettings);
+
 		wrapperElem.appendChild(newElem);
 		wrapperElem.appendChild(origElem);
+		origElem.appendChild(settingsElem);
 
 		return wrapperElem;
+	}
+
+	function openSettings(e) {
+		e.preventDefault();
+		// settings page code goes here
 	}
 
 	init();
