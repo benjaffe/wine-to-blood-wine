@@ -37,6 +37,7 @@
 }
 .wtbw .wtbw-settings {
     display:inline-block;
+    display:none;
     width:12px;
     height:12px;
     margin:1px 0 0 2px;
